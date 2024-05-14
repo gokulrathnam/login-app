@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Login Menu</title>
+<style>
+body {
+	text-align: center;
+}
+
+.login-menu {
+	display: inline-block;
+	text-align: left;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	background-color: #f9f9f9;
+}
+
+.login-menu input[type="text"], .login-menu input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.login-menu input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #4CAF50;
+	color: white;
+	cursor: pointer;
+}
+</style>
+</head>
+<script language="javaScript">
+function fnSubmit() {
+	var usr = document.forms[0].username.value;
+	var pwd = document.forms[0].password.value;
+	if(usr==""&&pwd==""){
+		alert("Please Enter Required Field");
+		document.forms[0].method = "post";
+		document.forms[0].action = "Login.html";
+		document.forms[0].submit();
+	}
+}
+function fnRegister(){
+	document.forms[0].method = "post";
+	document.forms[0].action = "../jsp/Register.jsp";
+	document.forms[0].submit();
+}
+</script>
+<body>
+	<div class="login-menu">
+		<h1>Login</h1>
+		<form method="post" action="../jsp/Login.jsp">
+			<label for="username">Username:</label> <input type="text"
+				id="username" name="username" placeholder="Enter your username">
+			<label for="password">Password:</label> <input type="password"
+				id="password" name="password" placeholder="Enter your password">
+			 <input type="submit" value="Login" onclick="fnSubmit()"> 
+			<input type="button" value="Register" onclick="fnRegister()">
+		</form>
+</body>
+</html>
